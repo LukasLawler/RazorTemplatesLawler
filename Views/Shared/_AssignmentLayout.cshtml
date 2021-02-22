@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "_Layout";
+}
+@{
+    string message = "Welcome";
+    if (ViewBag.AccessLevel <= 2)
+    {
+        message = "You do not have a sufficient access level to view this data.";
+    }
+    else if (ViewBag.AccessLevel >= 8)
+    {
+        message = ViewBag.Admin;
+    }
+}
+<h1 class="display-4">@message</h1>
+@RenderBody()
